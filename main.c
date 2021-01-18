@@ -5,7 +5,7 @@
 static bool get_input(void);
 bool parse_input(char *input);
 
-static char player_input[256];
+static char player_input[256] = "exit";
 
 int main(void) {
     // game loop
