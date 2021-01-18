@@ -4,7 +4,6 @@
 
 static bool get_input(void);
 bool parse_input(char *input);
-void print_info(void);
 
 static char player_input[256];
 
