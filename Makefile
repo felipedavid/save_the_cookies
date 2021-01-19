@@ -1,2 +1,2 @@
-game: main.c
+game: *.c
 	gcc -Wall -o game *.c
