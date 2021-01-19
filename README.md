@@ -1,6 +1,6 @@
 Save the Cookies
 ----
-Um simples game para demonstar as principais funcionalidades dos clássicos rpgs
+Um simples text-based rpg game para demonstar as principais funcionalidades dos clássicos rpgs
 de texto famosos nos anos 70.
 A premissa do game é bem simples, monstros atacaram o seu vilerejo durante a
 noite e acabaram roubando todo o seu estoque de alimentos, entre os alimentos 
