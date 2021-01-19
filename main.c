@@ -13,10 +13,7 @@ int main(void) {
 
     // game loop
     // get input -> parse it and execute -> repeat
-    while (true) {
-        if (parse_input(player_input) && get_input())
-            break;
-    }
+    while (parse_input(player_input) && get_input());
 
     return EXIT_SUCCESS;
 }
@@ -53,10 +50,10 @@ void print_project_info(void) {
 
 static bool get_input(void) {
     // TODO
-    return true;
+    return false;
 }
 
 bool parse_input(char *input) {
     // TODO
-    return true;
+    return false;
 }
