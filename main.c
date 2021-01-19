@@ -46,7 +46,9 @@ void print_project_info(void) {
     "/// para você. Seu objetivo é atacar o labirinto de onde esses monstros   ///\n"
     "/// saíram e tentar recuperar o máximo de biscoitos possível.             ///\n"
     "///                                                                       ///\n"
-    "/////////////////////////////////////////////////////////////////////////////\n");
+    "/////////////////////////////////////////////////////////////////////////////\n\n"
+    "\t\t\t>>> Tecle <ENTER> para continuar...\n");
+    getchar();
 }
 
 static bool get_input(void) {
