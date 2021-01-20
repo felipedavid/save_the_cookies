@@ -13,6 +13,9 @@ bool executar_comando(char *verbo, char *substantivo);
 static char entrada[256] = "info";
 
 int main(void) {
+    menu_sobre(); // <- Só pra comprir os requisitos da 1/15 (vai printar o
+                  // menu duas vezes pela forma que decidi fazer as coisas)
+
     // game loop
     // pegar entrada do usuário -> procurar por comandos válidos -> executar
     // comand se válido -> repetir 
