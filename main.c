@@ -10,11 +10,10 @@ static bool obter_entrada(void);
 bool analisar_entrada(char *entrada);
 bool executar_comando(char *verbo, char *substantivo);
 
-static char entrada[256] = "info";
+static char entrada[256] = "none";
 
 int main(void) {
-    menu_sobre(); // <- Só pra comprir os requisitos da 1/15 (vai printar o
-                  // menu duas vezes pela forma que decidi fazer as coisas)
+    menu_sobre(); // requisitos 1/15
 
     // game loop
     // pegar entrada do usuário -> procurar por comandos válidos -> executar
@@ -76,6 +75,8 @@ bool executar_comando(char *verbo, char *substantivo) {
         return false;
     else if (!strcmp(verbo, "info"))
         menu_sobre();
+    else if (!strcmp(verbo, "none"))
+        ; 
     else 
         printf("Comando %s não existe.", verbo);
 
