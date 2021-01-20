@@ -49,13 +49,13 @@ void menu_sobre(void) {
         "/// saíram e tentar recuperar o máximo de biscoitos possível.             ///\n"
         "///                                                                       ///\n"
         "/////////////////////////////////////////////////////////////////////////////\n\n"
-        "\t\t\t>>> Digite 'info' para mostrar informações do game...\n"
-        "\t\t\t>>> Digite 'sair' para fechar o game...\n");
+        "\t>>> Digite 'info' para mostrar informações do game...\n"
+        "\t>>> Digite 'sair' para fechar o game...\n");
 }
 
 static bool obter_entrada(void) {
     printf(">>> ");
-    char *tanto_faz = fgets(entrada, sizeof entrada, stdin);
+    char *tanto_faz = fgets(entrada, sizeof(entrada), stdin);
 
     if (tanto_faz == NULL)
         return false;

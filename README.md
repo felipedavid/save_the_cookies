@@ -18,8 +18,6 @@ Building
 
 TODO
 ----
-* Implementar um simples parser que aceite comandos formados por verbo e 
-substantivo, ex: "> atacar goblin"
 * Adicionar uma estrutura object que sera a base de tudo, jogador, monstro,
 items, lugares.
 * Implementar locais
@@ -33,3 +31,8 @@ TALVEZ
 ----
 * Implementar NPCS e dialogo
 * Implementar algo para salvar o jogo em um arquivo ou banco de dados
+
+DONE
+----
+* Implementar um simples parser que aceite comandos formados por verbo e 
+substantivo, ex: "> atacar goblin"
