@@ -18,8 +18,6 @@ Building
 
 TODO
 ----
-* Adicionar uma estrutura object que sera a base de tudo, jogador, monstro,
-items, lugares.
 * Implementar locais
 * Implementar mecânicas e status do jogador
 * Criar sistema de inventário
@@ -36,3 +34,5 @@ DONE
 ----
 * Implementar um simples parser que aceite comandos formados por verbo e 
 substantivo, ex: "> atacar goblin"
+* Adicionar uma estrutura object que sera a base de tudo, jogador, monstro,
+items, lugares.
