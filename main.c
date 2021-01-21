@@ -35,7 +35,7 @@ bool analisar_entrada(char *entrada) {
     char *verbo = strtok(entrada, " \n");
     //char *preposicao = strtok(NULL, " \n");
     //char *substantivo = strtok(NULL, "\n");
-    if (verbo == NULL) return false;
+    if (verbo == NULL) return true;
 
     return executar_comando(verbo, NULL, NULL);
 }
