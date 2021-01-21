@@ -3,18 +3,20 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include "utils.h"
+#include "comandos.h"
 //#include "objeto.h"
 
 void menu_sobre(void);
 static bool obter_entrada(void);
 bool analisar_entrada(char *entrada);
-bool executar_comando(char *verbo, char *substantivo);
+bool executar_comando(char *verbo, char *preposicao, char *substantivo);
 
-static char entrada[256] = "none";
+static char entrada[256] = "olhar em volta";
 
 int main(void) {
-    menu_sobre(); // requisitos 1/15
+    info(); // requisitos 1/15, função definida em 'comandos.c'
+
+    puts("\tAviso: O game é case sensitive. ('sair' != 'SaiR')\n");
 
     // game loop
     // pegar entrada do usuário -> procurar por comandos válidos -> executar
@@ -25,29 +27,39 @@ int main(void) {
 }
 
 static bool obter_entrada(void) {
-    printf(">>> ");
+    printf("\n>>> ");
     char *tanto_faz = fgets(entrada, sizeof(entrada), stdin);
     return tanto_faz != NULL;
 }
 
 bool analisar_entrada(char *entrada) {
     char *verbo = strtok(entrada, " \n");
+    //char *preposicao = strtok(NULL, " \n");
+    //char *substantivo = strtok(NULL, "\n");
     if (verbo == NULL) return false;
 
-    return executar_comando(verbo, NULL);
+    return executar_comando(verbo, NULL, NULL);
 }
 
-bool executar_comando(char *verbo, char *substantivo) {
+bool executar_comando(char *verbo, char *preposicao, char *substantivo) {
     if (!strcmp(verbo, "sair"))
         return false;
     else if (!strcmp(verbo, "info"))
-        menu_sobre();
+        info();
+    else if (!strcmp(verbo, "ajuda"))
+        ajuda();
     else if (!strcmp(verbo, "olhar"))
-        printf("Você está no seu quarto.\n\n");
+        olhar(substantivo);
+    else if (!strcmp(verbo, "clear"))
+        clear();
+    else if (!strcmp(verbo, "inventario"))
+        inventario();
+    else if (!strcmp(verbo, "ir"))
+        ir(substantivo);
     else if (!strcmp(verbo, "none"))
         ;
     else 
-        printf("Comando '%s' não existe.\n\n", verbo);
+        printf("Comando '%s' não existe.\n", verbo);
 
     return true;
 }

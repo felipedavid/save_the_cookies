@@ -1,14 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "objeto.h"
+#include "comandos.h"
 
-void menu_sobre(void) {
-    #if defined _WIN32 || defined _WIN64
-        system("cls");
-    #else
-        system("clear");
-    #endif
+void info(void) {
 
     puts("/////////////////////////////////////////////////////////////////////////////\n"
         "///                                                                       ///\n"
@@ -34,8 +29,44 @@ void menu_sobre(void) {
         "/// para você. Seu objetivo é atacar o labirinto de onde esses monstros   ///\n"
         "/// saíram e tentar recuperar o máximo de biscoitos possível.             ///\n"
         "///                                                                       ///\n"
+        "/// AVISO: Esse game não tem como objetivo intrerter ninguém. O game      ///\n"
+        "/// como um todo é formado apenas de funcionalidades que achei            ///\n"
+        "/// interessante 'implementar' não que melhoram a experiência             ///\n"
+        "/// experiência do jogador. \"Programe jogos, não os jogue.\" :P            ///\n"
+        "///                                                                       ///\n"
         "/////////////////////////////////////////////////////////////////////////////\n\n"
-        "\t>>> Digite 'info' para mostrar informações do game...\n"
-        "\t>>> Digite 'ajuda' para visualizar os comandos suportados...\n"
+        "\t>>> Digite 'ajuda' para visualizar o manual de comandos...\n"
         "\t>>> Digite 'sair' para fechar o game...\n");
+}
+
+void ajuda(void) {
+    puts(""
+    "info  -> Exibe informações do projeto\n"
+    "ajuda -> Exibe esse manual de comandos\n"
+    "olhar -> Exibe informações do objeto especificado.\n"
+    "         Se nenhum objeto for especificado, o comando exibe informações\n"
+    "         do local atual.\n"
+    "sair  -> Sai do programa\n");
+}
+
+void olhar(char *substantivo) {
+    printf("Não implementado\n");
+}
+
+void inventario(void) {
+    printf("Não implementado\n");
+}
+
+void clear(void) {
+    #if defined _WIN32 || defined _WIN64
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
+void ir(char *substantivo) {
+    if (substantivo == NULL) {
+        printf("Pra onde você quer ir?\n"); 
+    }
 }
