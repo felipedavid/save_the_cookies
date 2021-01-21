@@ -6,7 +6,6 @@
 #include "utils.h"
 //#include "objeto.h"
 
-void menu_sobre(void);
 static bool obter_entrada(void);
 bool analisar_entrada(char *entrada);
 bool executar_comando(char *verbo, char *substantivo);
