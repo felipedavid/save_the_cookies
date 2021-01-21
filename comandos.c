@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-<<<<<<< HEAD:utils.c
-#include "utils.h"
-=======
 #include "comandos.h"
->>>>>>> 86426a6c24900bbe62b433f9dbc7e2e977e94ded:comandos.c
 
 void info(void) {
 
