@@ -10,17 +10,17 @@ static bool obter_entrada(void);
 bool analisar_entrada(char *entrada);
 bool executar_comando(char *verbo, char *preposicao, char *substantivo);
 
-static char entrada[256] = "olhar em volta";
+static char entrada[256];
 
 int main(void) {
     info(); // requisitos 1/15, função definida em 'comandos.c'
 
-    puts("\tAviso: O game é case sensitive. ('sair' != 'SaiR')\n");
+    puts("\tAviso: O game é case sensitive. ('sair' != 'SaiR')");
 
     // game loop
     // pegar entrada do usuário -> procurar por comandos válidos -> executar
     // comando se válido -> repetir 
-    while (analisar_entrada(entrada) && obter_entrada());
+    while (obter_entrada() && analisar_entrada(entrada));
 
     return EXIT_SUCCESS;
 }
@@ -55,8 +55,6 @@ bool executar_comando(char *verbo, char *preposicao, char *substantivo) {
         inventario();
     else if (!strcmp(verbo, "ir"))
         ir(substantivo);
-    else if (!strcmp(verbo, "none"))
-        ;
     else 
         printf("Comando '%s' não existe.\n", verbo);
 
