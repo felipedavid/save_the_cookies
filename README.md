@@ -2,7 +2,7 @@ Save the Cookies
 ----
 Um simples text-based rpg game para demonstar as principais funcionalidades dos clássicos rpgs
 de texto famosos nos anos 70.
-A premissa do game é bem simples, monstros atacaram o seu vilareijo durante a
+A premissa do game é bem simples, monstros atacaram o seu vilarejo durante a
 noite e acabaram roubando todo o seu estoque de alimentos, entre os alimentos 
 roubados estavam os biscoitos que sua vovó fez para você. Seu objetivo é atacar
 o labirinto de onde esses monstros saíram e tentar recuperar o máximo de 
