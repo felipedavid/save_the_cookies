@@ -65,32 +65,36 @@ void inventario(void) {
     printf("Você está carregando:\n");
 
     unsigned char item_counter = 0;
-    for (int i = 0; &objetos[i] != final_do_array ; i++)
+    for (int i = 0; &objetos[i] != final_do_array ; i++) {
         if (objetos[i].localizacao == jogador) {
             item_counter++;
             printf("[%d] %s\n", item_counter, objetos[i].nome);
         }
+    }
 
-    if (!item_counter)
+    if (!item_counter) {
         printf("Oops, seu inventário está vazio.\n");
+    }
 }
 
 void clear(void) {
-    #if defined _WIN32 || defined _WIN64
-        system("cls");
-    #else
-        system("clear");
-    #endif
+#if defined _WIN32 || defined _WIN64
+    system("cls");
+#else
+    system("clear");
+#endif
 }
 
 void ir(char *substantivo) {
-    if (substantivo == NULL)
+    if (substantivo == NULL) {
         printf("Pra onde você quer ir?\n"); 
-    else 
-        for (int i = 0; &objetos[i] != final_do_array ; i++)
+    } else {
+        for (int i = 0; &objetos[i] != final_do_array ; i++) {
             if (!strcmp(objetos[i].nome, substantivo)) {
                 jogador->localizacao = &objetos[i];
             }
+        }
+    }
     printf("Agora ");
     olhar(substantivo);
 }

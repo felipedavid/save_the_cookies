@@ -42,22 +42,22 @@ bool analisar_entrada(char *entrada) {
 }
 
 bool executar_comando(char *verbo, char *preposicao, char *substantivo) {
-    if (!strcmp(verbo, "sair"))
+    if (!strcmp(verbo, "sair")) {
         return false;
-    else if (!strcmp(verbo, "info"))
+    } else if (!strcmp(verbo, "info")) {
         info();
-    else if (!strcmp(verbo, "ajuda"))
+    } else if (!strcmp(verbo, "ajuda")) {
         ajuda();
-    else if (!strcmp(verbo, "olhar"))
+    } else if (!strcmp(verbo, "olhar")) {
         olhar(substantivo);
-    else if (!strcmp(verbo, "clear"))
+    } else if (!strcmp(verbo, "clear")) {
         clear();
-    else if (!strcmp(verbo, "inventario"))
+    } else if (!strcmp(verbo, "inventario")) {
         inventario();
-    else if (!strcmp(verbo, "ir"))
+    } else if (!strcmp(verbo, "ir")) {
         ir(substantivo);
-    else 
+    } else {
         printf("Comando '%s' não existe.\n", verbo);
-
+    }
     return true;
 }
