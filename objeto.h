@@ -14,4 +14,6 @@ extern objeto_t objetos[];
 #define vilarejo       (objetos+1)
 #define vizinho        (objetos+2)
 #define jogador        (objetos+3)
-#define final_do_array (objetos+4)
+#define biscoito       (objetos+4)
+#define estilingue     (objetos+5)
+#define final_do_array (objetos+6)
