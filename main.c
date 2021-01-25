@@ -6,8 +6,7 @@
 #include "comandos.h"
 
 bool obter_entrada(void);
-bool analisar_entrada(char *entrada);
-bool executar_comando(char *verbo, char *preposicao, char *substantivo);
+bool executar_entrada(void);
 
 static char entrada[256];
 
@@ -21,7 +20,7 @@ int main(void) {
     // game loop
     // pegar entrada do usuário -> procurar por comandos válidos -> executar
     // comando se válido -> repetir 
-    while (obter_entrada() && analisar_entrada(entrada));
+    while (obter_entrada() && executar_entrada());
 
     return EXIT_SUCCESS;
 }
@@ -32,16 +31,12 @@ bool obter_entrada(void) {
     return tanto_faz != NULL;
 }
 
-bool analisar_entrada(char *entrada) {
+bool executar_entrada(void) {
     char *verbo = strtok(entrada, " \n");
     //char *preposicao = strtok(NULL, " \n");
     char *substantivo = strtok(NULL, "\n");
     if (verbo == NULL) return true;
 
-    return executar_comando(verbo, NULL, substantivo);
-}
-
-bool executar_comando(char *verbo, char *preposicao, char *substantivo) {
     if (!strcmp(verbo, "sair")) {
         return false;
     } else if (!strcmp(verbo, "info")) {

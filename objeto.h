@@ -17,3 +17,5 @@ extern objeto_t objetos[];
 #define biscoito       (objetos+4)
 #define estilingue     (objetos+5)
 #define final_do_array (objetos+6)
+
+int objetos_em_localizacao(objeto_t *localizacao);

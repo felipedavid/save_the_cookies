@@ -58,7 +58,8 @@ void ajuda(void) {
 }
 
 void olhar(char *substantivo) {
-    printf("você está %s\n", jogador->localizacao->info);
+    printf("Você está na(o) %s\n", jogador->localizacao->info);
+    objetos_em_localizacao(jogador->localizacao);
 }
 
 void inventario(void) {
