@@ -46,15 +46,24 @@ void info(void) {
 }
 
 void ajuda(void) {
-    puts(""
-    "info  -> Exibe informações do projeto.\n"
-    "ajuda -> Exibe esse manual de comandos.\n"
-    "olhar -> Exibe informações do objeto especificado.\n"
-    "         Se nenhum objeto for especificado, o comando exibe informações\n"
-    "         do local atual.\n"
-    "inventario -> Exibe os items você está carregando.\n"
-    "clear -> Limpa a tela.\n"
-    "sair  -> Sai do programa.\n");
+    puts("/////////////////////////////////////////////////////////////////////////////\n"
+        "///                                                                       ///\n"
+        "///          ===================================================          ///\n"
+        "///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n"
+        "///          = = = =              Menu Ajuda             = = = =          ///\n"
+        "///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n"
+        "///          ===================================================          ///\n"
+        "///                                                                       ///\n"
+        "/// info  -> Exibe informações do projeto.                                ///\n"
+        "/// ajuda -> Exibe esse manual de comandos.                               ///\n"
+        "/// olhar -> Exibe informações do objeto especificado.                    ///\n"
+        "///          Se nenhum objeto for especificado, o comando exibe           ///\n"
+        "///          informações do local atual.                                  ///\n"
+        "/// inventario -> Exibe os items você está carregando.                    ///\n"
+        "/// clear -> Limpa a tela.                                                ///\n"
+        "/// sair  -> Sai do programa.                                             ///\n"
+        "///                                                                       ///\n"
+        "/////////////////////////////////////////////////////////////////////////////\n\n");
 }
 
 void olhar(char *substantivo) {
@@ -63,27 +72,29 @@ void olhar(char *substantivo) {
 }
 
 void inventario(void) {
-    printf("Você está carregando:\n");
+    printf("/////////////////////////////////////////////////////////////////////////////\n"
+        "///                                                                       ///\n"
+        "///          ===================================================          ///\n"
+        "///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n"
+        "///          = = = =            Seu Inventario           = = = =          ///\n"
+        "///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n"
+        "///          ===================================================          ///\n"
+        "///                                                                       ///\n");
 
     unsigned char item_counter = 0;
     for (int i = 0; &objetos[i] != final_do_array ; i++) {
         if (objetos[i].localizacao == jogador) {
             item_counter++;
-            printf("[%d] %s\n", item_counter, objetos[i].nome);
+            printf("///\t\t\t\t[%d] %s\n", item_counter, objetos[i].nome);
+            // TODO: alinhar '/' no final da linha do item
         }
     }
-
-    if (!item_counter) {
-        printf("Oops, seu inventário está vazio.\n");
+    if (item_counter == 0) {
+        printf("///                        INVENTARIO VAZIO                               ///\n");
     }
-}
 
-void clear(void) {
-#if defined _WIN32 || defined _WIN64
-    system("cls");
-#else
-    system("clear");
-#endif
+    printf("///                                                                       ///\n"
+        "/////////////////////////////////////////////////////////////////////////////\n\n");
 }
 
 void ir(char *substantivo) {
@@ -98,4 +109,28 @@ void ir(char *substantivo) {
     }
     printf("Agora ");
     olhar(substantivo);
+}
+
+void pegar(char *objeto) {
+    if (objeto == NULL) {
+        printf("Que objeto você deseja pegar?\n");
+        return;
+    }
+    printf(">>> Não Implementado <<<\n");
+}
+
+void largar(char *objeto) {
+    if (objeto == NULL) {
+        printf("Que objeto você deseja largar?\n");
+        return;
+    }
+    printf(">>> Não Implementado <<<\n");
+}
+
+void clear(void) {
+#if defined _WIN32 || defined _WIN64
+    system("cls");
+#else
+    system("clear");
+#endif
 }

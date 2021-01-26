@@ -18,12 +18,11 @@ Building
 
 TODO
 ----
-* Implementar locais
 * Implementar mecânicas e status do jogador
-* Criar sistema de inventário
 * Adicionar items e sistema de buff para aumentar status do jogador
 * Implementar inimigos e mecânica de combate
 * Implementar sistemas de drop após combate
+* Refinar todas as funcionalidades
 
 TALVEZ
 ----
@@ -36,3 +35,5 @@ DONE
 substantivo, ex: "> atacar goblin"
 * Adicionar uma estrutura object que sera a base de tudo, jogador, monstro,
 items, lugares.
+* Implementar locais
+* Criar sistema de inventário

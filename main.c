@@ -4,23 +4,26 @@
 #include <string.h>
 
 #include "comandos.h"
+#include "utils.h"
 
 bool obter_entrada(void);
 bool executar_entrada(void);
 
-static char entrada[256];
+static char entrada[256] = "info";
 
 int main(void) {
-    info(); // requisitos 1/15, função definida em 'comandos.c'
-
     puts("\tAviso: O game é case sensitive. ('sair' != 'SaiR')\n\n");
 
-    olhar(NULL);
+    // 2/15
+    info();
+    ajuda();
+    inventario();
+    venceu();
+    perdeu();
 
     // game loop
-    // pegar entrada do usuário -> procurar por comandos válidos -> executar
-    // comando se válido -> repetir 
-    while (obter_entrada() && executar_entrada());
+    // pegar entrada do usuário -> parse e executar -> repetir 
+    while (executar_entrada() && obter_entrada());
 
     return EXIT_SUCCESS;
 }
@@ -33,7 +36,6 @@ bool obter_entrada(void) {
 
 bool executar_entrada(void) {
     char *verbo = strtok(entrada, " \n");
-    //char *preposicao = strtok(NULL, " \n");
     char *substantivo = strtok(NULL, "\n");
     if (verbo == NULL) return true;
 
@@ -51,6 +53,10 @@ bool executar_entrada(void) {
         inventario();
     } else if (!strcmp(verbo, "ir")) {
         ir(substantivo);
+    } else if (!strcmp(verbo, "pegar")) {
+        pegar(substantivo);
+    } else if (!strcmp(verbo, "soltar")) {
+        largar(substantivo);
     } else {
         printf("Comando '%s' não existe.\n", verbo);
     }
