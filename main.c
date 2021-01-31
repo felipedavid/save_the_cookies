@@ -9,7 +9,7 @@
 bool obter_entrada(void);
 bool executar_entrada(void);
 
-static char entrada[256] = "info";
+static char entrada[256];
 
 int main(void) {
     puts("\tAviso: O game é case sensitive. ('sair' != 'SaiR')\n\n");
@@ -17,9 +17,9 @@ int main(void) {
     // 2/15
     info();
     ajuda();
-    inventario();
     venceu();
     perdeu();
+    inventario();
 
     // game loop
     // pegar entrada do usuário -> parse e executar -> repetir 

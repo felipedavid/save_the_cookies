@@ -82,11 +82,17 @@ void inventario(void) {
         "///                                                                       ///\n");
 
     unsigned char item_counter = 0;
-    for (int i = 0; &objetos[i] != final_do_array ; i++) {
-        if (objetos[i].localizacao == jogador) {
+    for (objeto_t *obj_p = objetos; obj_p != final_do_array ; obj_p++) {
+        if (obj_p->localizacao == jogador) {
             item_counter++;
-            printf("///\t\t\t\t[%d] %s\n", item_counter, objetos[i].nome);
-            // TODO: alinhar '/' no final da linha do item
+            printf("///\t\t\t\t[%d] %s", item_counter, obj_p->nome);
+
+            // alinhar a borda do quadro
+            int n_espacos = 38 - strlen(obj_p->nome);
+            for (int j = 0; j < n_espacos; j++) {
+                printf(" ");
+            }
+            printf("///\n");
         }
     }
     if (item_counter == 0) {
