@@ -19,3 +19,4 @@ extern objeto_t objetos[];
 #define final_do_array (objetos+6)
 
 int objetos_em_localizacao(objeto_t *localizacao);
+objeto_t *procurar_objeto(char *subs);

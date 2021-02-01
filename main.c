@@ -5,6 +5,7 @@
 
 #include "comandos.h"
 #include "utils.h"
+#include "inventario.h"
 
 bool obter_entrada(void);
 bool executar_entrada(void);
@@ -54,9 +55,11 @@ bool executar_entrada(void) {
     } else if (!strcmp(verbo, "ir")) {
         ir(substantivo);
     } else if (!strcmp(verbo, "pegar")) {
-        pegar(substantivo);
-    } else if (!strcmp(verbo, "soltar")) {
-        largar(substantivo);
+        pegar_item(substantivo);
+    } else if (!strcmp(verbo, "dar")) {
+        dar_item(substantivo);
+    } else if (!strcmp(verbo, "largar")) {
+        largar_item(substantivo);
     } else {
         printf("Comando '%s' não existe.\n", verbo);
     }

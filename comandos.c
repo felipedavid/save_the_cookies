@@ -71,38 +71,6 @@ void olhar(char *substantivo) {
     objetos_em_localizacao(jogador->localizacao);
 }
 
-void inventario(void) {
-    printf("/////////////////////////////////////////////////////////////////////////////\n"
-        "///                                                                       ///\n"
-        "///          ===================================================          ///\n"
-        "///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n"
-        "///          = = = =            Seu Inventario           = = = =          ///\n"
-        "///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n"
-        "///          ===================================================          ///\n"
-        "///                                                                       ///\n");
-
-    unsigned char item_counter = 0;
-    for (objeto_t *obj_p = objetos; obj_p != final_do_array ; obj_p++) {
-        if (obj_p->localizacao == jogador) {
-            item_counter++;
-            printf("///\t\t\t\t[%d] %s", item_counter, obj_p->nome);
-
-            // alinhar a borda do quadro
-            int n_espacos = 38 - strlen(obj_p->nome);
-            for (int j = 0; j < n_espacos; j++) {
-                printf(" ");
-            }
-            printf("///\n");
-        }
-    }
-    if (item_counter == 0) {
-        printf("///                        INVENTARIO VAZIO                               ///\n");
-    }
-
-    printf("///                                                                       ///\n"
-        "/////////////////////////////////////////////////////////////////////////////\n\n");
-}
-
 void ir(char *substantivo) {
     if (substantivo == NULL) {
         printf("Pra onde você quer ir?\n"); 

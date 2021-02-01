@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 #include "objeto.h"
 
 objeto_t objetos[] = {
@@ -11,7 +13,7 @@ objeto_t objetos[] = {
 };
 
 int objetos_em_localizacao(objeto_t *localizacao) {
-    unsigned char objeto_c = 0;
+    int objeto_c = 0;
     for (int i = 0; &objetos[i] < final_do_array; i++) {
         if (objetos[i].localizacao == localizacao && &objetos[i] != jogador) {
             if (objeto_c == 0) printf("Você encherga:\n");
@@ -20,4 +22,17 @@ int objetos_em_localizacao(objeto_t *localizacao) {
         }
     }
     return objeto_c;
+}
+
+objeto_t *procurar_objeto(char *subs) {
+    objeto_t *objeto = NULL;
+    if (subs == NULL) {
+        return objeto;
+    }
+    for (objeto_t *obj_p = objetos; obj_p != final_do_array; obj_p++) {
+        if (!strcmp(subs, obj_p->nome)) {
+            objeto = obj_p;
+        }
+    }
+    return objeto;
 }
