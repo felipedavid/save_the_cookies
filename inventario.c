@@ -4,31 +4,31 @@
 #include "objeto.h"
 #include "utils.h"
 
-void mover_objeto(char *substantivo, objeto_t *loc_atual, objeto_t *dst) {
-    objeto_t *objeto = procurar_objeto(substantivo);
+void moverObjeto(char *substantivo, objeto_t *locAtual, objeto_t *destino) {
+    objeto_t *objeto = procurarObjeto(substantivo);
     if (objeto == NULL) {
         printf("Objeto não encontrado.\n");
-    } else if (loc_atual != objeto->localizacao) {
+    } else if (locAtual != objeto->localizacao) {
         printf("Você não pode fazer isso.\n");
-    } else if (dst == NULL) {
+    } else if (destino == NULL) {
         printf("Item não pode ser entregue a 'NULL'.\n");
     } else {
-        objeto->localizacao = dst;
+        objeto->localizacao = destino;
     }
 }
 
-void dar_item(char *subs) {
+void darItem(char *subs) {
     printf(">>> Não implementado <<<\n");
 }
 
-void pegar_item(char *subs) {
+void pegarItem(char *subs) {
     // implementar alguns checks pra o jogador não poder colocar npcs e 
     // monstros no inventário.
-    mover_objeto(subs, jogador->localizacao, jogador);
+    moverObjeto(subs, jogador->localizacao, jogador);
 }
 
-void largar_item(char *subs) {
-    mover_objeto(subs, jogador, jogador->localizacao);
+void largarItem(char *subs) {
+    moverObjeto(subs, jogador, jogador->localizacao);
 }
 
 void inventario(void) {
@@ -41,21 +41,21 @@ void inventario(void) {
         "///          ===================================================          ///\n"
         "///                                                                       ///\n");
 
-    unsigned char item_counter = 0;
-    for (objeto_t *obj_p = objetos; obj_p != final_do_array ; obj_p++) {
+    int nItems = 0;
+    for (objeto_t *obj_p = objetos; obj_p != finalDoArray; obj_p++) {
         if (obj_p->localizacao == jogador) {
-            item_counter++;
-            printf("///\t\t\t\t[%d] %s", item_counter, obj_p->nome);
+            nItems++;
+            printf("///\t\t\t\t[%d] %s", nItems, obj_p->nome);
 
             // alinhar a borda do quadro
-            int n_espacos = 38 - strlen(obj_p->nome);
-            for (int j = 0; j < n_espacos; j++) {
+            int nEspacos = 38 - strlen(obj_p->nome);
+            for (int j = 0; j < nEspacos; j++) {
                 printf(" ");
             }
             printf("///\n");
         }
     }
-    if (item_counter == 0) {
+    if (nItems == 0) {
         printf("///                        INVENTARIO VAZIO                               ///\n");
     }
 

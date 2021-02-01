@@ -68,14 +68,14 @@ void ajuda(void) {
 
 void olhar(char *substantivo) {
     printf("Você está na(o) %s\n", jogador->localizacao->info);
-    objetos_em_localizacao(jogador->localizacao);
+    objetosEmLocalizacao(jogador->localizacao);
 }
 
 void ir(char *substantivo) {
     if (substantivo == NULL) {
         printf("Pra onde você quer ir?\n"); 
     } else {
-        for (int i = 0; &objetos[i] != final_do_array ; i++) {
+        for (int i = 0; &objetos[i] != finalDoArray ; i++) {
             if (!strcmp(objetos[i].nome, substantivo)) {
                 jogador->localizacao = &objetos[i];
             }
@@ -83,22 +83,6 @@ void ir(char *substantivo) {
     }
     printf("Agora ");
     olhar(substantivo);
-}
-
-void pegar(char *objeto) {
-    if (objeto == NULL) {
-        printf("Que objeto você deseja pegar?\n");
-        return;
-    }
-    printf(">>> Não Implementado <<<\n");
-}
-
-void largar(char *objeto) {
-    if (objeto == NULL) {
-        printf("Que objeto você deseja largar?\n");
-        return;
-    }
-    printf(">>> Não Implementado <<<\n");
 }
 
 void clear(void) {

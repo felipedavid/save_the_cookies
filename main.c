@@ -7,8 +7,8 @@
 #include "utils.h"
 #include "inventario.h"
 
-bool obter_entrada(void);
-bool executar_entrada(void);
+bool obterEntrada(void);
+bool executarEntrada(void);
 
 static char entrada[256];
 
@@ -24,18 +24,17 @@ int main(void) {
 
     // game loop
     // pegar entrada do usuário -> parse e executar -> repetir 
-    while (executar_entrada() && obter_entrada());
+    while (executarEntrada() && obterEntrada());
 
     return EXIT_SUCCESS;
 }
 
-bool obter_entrada(void) {
+bool obterEntrada(void) {
     printf("\n>>> ");
-    char *tanto_faz = fgets(entrada, sizeof(entrada), stdin);
-    return tanto_faz != NULL;
+    return fgets(entrada, sizeof(entrada), stdin);
 }
 
-bool executar_entrada(void) {
+bool executarEntrada(void) {
     char *verbo = strtok(entrada, " \n");
     char *substantivo = strtok(NULL, "\n");
     if (verbo == NULL) return true;
@@ -55,11 +54,11 @@ bool executar_entrada(void) {
     } else if (!strcmp(verbo, "ir")) {
         ir(substantivo);
     } else if (!strcmp(verbo, "pegar")) {
-        pegar_item(substantivo);
+        pegarItem(substantivo);
     } else if (!strcmp(verbo, "dar")) {
-        dar_item(substantivo);
+        darItem(substantivo);
     } else if (!strcmp(verbo, "largar")) {
-        largar_item(substantivo);
+        largarItem(substantivo);
     } else {
         printf("Comando '%s' não existe.\n", verbo);
     }

@@ -1,4 +1,4 @@
 void inventario(void);
-void pegar_item(char *);
-void dar_item(char *);
-void largar_item(char *);
+void pegarItem(char *);
+void darItem(char *);
+void largarItem(char *);

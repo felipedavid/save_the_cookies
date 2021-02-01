@@ -12,24 +12,24 @@ objeto_t objetos[] = {
     {"o seu estilingue", "Estilingue", jogador},
 };
 
-int objetos_em_localizacao(objeto_t *localizacao) {
-    int objeto_c = 0;
-    for (int i = 0; &objetos[i] < final_do_array; i++) {
-        if (objetos[i].localizacao == localizacao && &objetos[i] != jogador) {
-            if (objeto_c == 0) printf("Você encherga:\n");
-            objeto_c++;
-            printf("%s\n", objetos[i].info);
+int objetosEmLocalizacao(objeto_t *localizacao) {
+    int nObjetos = 0;
+    for (objeto_t *obj_p = objetos; obj_p != finalDoArray; obj_p++) {
+        if (obj_p->localizacao == localizacao && obj_p->localizacao != jogador) {
+            if (nObjetos == 0) printf("Você encherga:\n");
+            nObjetos++;
+            printf("%s\n", obj_p->info);
         }
     }
-    return objeto_c;
+    return nObjetos;;
 }
 
-objeto_t *procurar_objeto(char *subs) {
+objeto_t *procurarObjeto(char *subs) {
     objeto_t *objeto = NULL;
     if (subs == NULL) {
         return objeto;
     }
-    for (objeto_t *obj_p = objetos; obj_p != final_do_array; obj_p++) {
+    for (objeto_t *obj_p = objetos; obj_p != finalDoArray; obj_p++) {
         if (!strcmp(subs, obj_p->nome)) {
             objeto = obj_p;
         }
