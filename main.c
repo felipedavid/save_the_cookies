@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "comandos.h"
+#include "objeto.h"
 #include "utils.h"
 #include "inventario.h"
 
@@ -16,11 +17,11 @@ int main(void) {
     puts("\tAviso: O game é case sensitive. ('sair' != 'SaiR')\n\n");
 
     // 2/15
-    info();
     ajuda();
     venceu();
     perdeu();
-    inventario();
+    abrirInventario();
+    info();
 
     // game loop
     // pegar entrada do usuário -> parse e executar -> repetir 
@@ -35,6 +36,10 @@ bool obterEntrada(void) {
 }
 
 bool executarEntrada(void) {
+    // Pensando em uma maneira sem muita gambiarra de se coletar o verbo e o
+    // substantivo da entrada do jogador. Por enquanto, vamo de strtok mesmo.
+    // char *verbo = parseVerbo(entrada)
+    // char *substantivo = parseSubstantivo(entrada)
     char *verbo = strtok(entrada, " \n");
     char *substantivo = strtok(NULL, "\n");
     if (verbo == NULL) return true;
@@ -50,7 +55,7 @@ bool executarEntrada(void) {
     } else if (!strcmp(verbo, "clear")) {
         clear();
     } else if (!strcmp(verbo, "inventario")) {
-        inventario();
+        abrirInventario();
     } else if (!strcmp(verbo, "ir")) {
         ir(substantivo);
     } else if (!strcmp(verbo, "pegar")) {
