@@ -46,24 +46,23 @@ void info(void) {
 }
 
 void ajuda(void) {
-    puts("/////////////////////////////////////////////////////////////////////////////\n"
-        "///                                                                       ///\n"
-        "///          ===================================================          ///\n"
-        "///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n"
-        "///          = = = =              Menu Ajuda             = = = =          ///\n"
-        "///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n"
-        "///          ===================================================          ///\n"
-        "///                                                                       ///\n"
-        "/// info  -> Exibe informações do projeto.                                ///\n"
-        "/// ajuda -> Exibe esse manual de comandos.                               ///\n"
-        "/// olhar -> Exibe informações do objeto especificado.                    ///\n"
-        "///          Se nenhum objeto for especificado, o comando exibe           ///\n"
-        "///          informações do local atual.                                  ///\n"
-        "/// inventario -> Exibe os items você está carregando.                    ///\n"
-        "/// clear -> Limpa a tela.                                                ///\n"
-        "/// sair  -> Sai do programa.                                             ///\n"
-        "///                                                                       ///\n"
-        "/////////////////////////////////////////////////////////////////////////////\n\n");
+    puts("/////////////////////////////////////////////////////////////////////\n"
+        "///                                                               ///\n"
+        "///      ===================================================      ///\n"
+        "///      = = = =              Menu Ajuda             = = = =      ///\n"
+        "///      ===================================================      ///\n"
+        "///                                                               ///\n"
+        "/// info  -> Exibe informações do projeto.                        ///\n"
+        "/// ajuda -> Exibe esse manual de comandos.                       ///\n"
+        "/// olhar -> Exibe informações do objeto especificado.            ///\n"
+        "///          Se nenhum objeto for especificado, o comando exibe   ///\n"
+        "///          informações do local atual.                          ///\n"
+        "/// inventario -> Exibe os items você está carregando.            ///\n"
+        "/// rank -> mostra os jogadores com pontuação mais alta.          ///\n"
+        "/// clear -> Limpa a tela.                                        ///\n"
+        "/// sair  -> Sai do programa.                                     ///\n"
+        "///                                                               ///\n"
+        "/////////////////////////////////////////////////////////////////////\n\n");
 }
 
 void olhar(char *substantivo) {

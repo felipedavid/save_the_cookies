@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include "ranking.h"
 #include "comandos.h"
 #include "objeto.h"
 #include "utils.h"
@@ -11,21 +12,15 @@
 bool obterEntrada(void);
 bool executarEntrada(void);
 
-static char entrada[256];
+static char entrada[256] = "info";
 
 int main(void) {
-    puts("\tAviso: O game é case sensitive. ('sair' != 'SaiR')\n\n");
-
-    // 2/15
-    ajuda();
-    venceu();
-    perdeu();
-    abrirInventario();
-    info();
+    cadastrarRanking(); // 3/15 (definido em ranking.c)
 
     // game loop
     // pegar entrada do usuário -> parse e executar -> repetir 
     while (executarEntrada() && obterEntrada());
+
 
     return EXIT_SUCCESS;
 }
@@ -36,6 +31,7 @@ bool obterEntrada(void) {
 }
 
 bool executarEntrada(void) {
+    clear();
     // Pensando em uma maneira sem muita gambiarra de se coletar o verbo e o
     // substantivo da entrada do jogador. Por enquanto, vamo de strtok mesmo.
     // char *verbo = parseVerbo(entrada)
@@ -64,6 +60,8 @@ bool executarEntrada(void) {
         darItem(substantivo);
     } else if (!strcmp(verbo, "largar")) {
         largarItem(substantivo);
+    } else if (!strcmp(verbo, "rank")) {
+        mostrarRanking();
     } else {
         printf("Comando '%s' não existe.\n", verbo);
     }

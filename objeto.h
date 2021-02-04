@@ -1,8 +1,3 @@
-// por questões de simplicidade decidi fazer de tudo um 'objeto'
-// ex: colocar item no 'inventário' do jogador? 
-//     só dizer que o item está 'localizado' no jogador.
-//      1  objeto_t biscoito;
-//      2  biscoito.localizacao = &jogador;
 typedef struct objeto {
     char *info;
     char *nome;
