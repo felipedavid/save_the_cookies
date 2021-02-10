@@ -15,12 +15,10 @@ bool executarEntrada(void);
 static char entrada[256] = "info";
 
 int main(void) {
-    cadastrarRanking(); // 3/15 (definido em ranking.c)
-
-    // game loop
-    // pegar entrada do usuário -> parse e executar -> repetir 
+    // 4/15
+    // Acho que essa funcionalidade já está próximo suficiente dos requisitos 
+    // do 'sistema de navegação'
     while (executarEntrada() && obterEntrada());
-
 
     return EXIT_SUCCESS;
 }
