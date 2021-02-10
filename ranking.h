@@ -1,5 +1,5 @@
-void cadastrarRanking(void);
-void mostrarRanking(void);
+void cadastrar_ranking(void);
+void mostrar_ranking(void);
 
 typedef struct {
     int dia, mes, ano;
@@ -13,5 +13,5 @@ typedef struct JOGADOR {
     struct JOGADOR *next;
 } JOGADOR;
 
-extern JOGADOR rankingJogadores[];
-#define fimJogadores (rankingJogadores+2)
+extern JOGADOR ranking_jogadores[];
+#define fim_jogadores (ranking_jogadores+2)

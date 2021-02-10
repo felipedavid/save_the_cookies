@@ -28,18 +28,18 @@ void perdeu(void) {
         " >>> Pressione 'enter' para sair.\n");
 }
 
-char *parseVerbo(char *entrada) {
+char *parse_verbo(char *entrada) {
     printf(">>> Funcionalidade não implementada <<<");
     return NULL;
 }
 
-char *parseSubstantivo(char *entrada) {
+char *parse_substantivo(char *entrada) {
     printf(">>> Funcionalidade não implementada <<<");
     return NULL;
 }
 
-objeto_t *testarNPC(void) {
-    for (objeto_t *obj_p = objetos; obj_p != finalDoArray; obj_p++) {
+objeto_t *testar_NPC(void) {
+    for (objeto_t *obj_p = objetos; obj_p != final_array; obj_p++) {
         if (obj_p == vizinho && obj_p->localizacao == jogador->localizacao) {
             return obj_p;
         }

@@ -4,7 +4,7 @@
 #include "objeto.h"
 #include "utils.h"
 
-void abrirInventario(void) {
+void abrir_inventario(void) {
     printf("/////////////////////////////////////////////////\n"
         "///                                           ///\n"
         "///    ===================================    ///\n"
@@ -12,21 +12,21 @@ void abrirInventario(void) {
         "///    ===================================    ///\n"
         "///                                           ///\n");
 
-    int nItems = 0;
-    for (objeto_t *obj_p = objetos; obj_p != finalDoArray; obj_p++) {
+    int n_items = 0;
+    for (objeto_t *obj_p = objetos; obj_p != final_array; obj_p++) {
         if (obj_p->localizacao == jogador) {
-            nItems++;
-            printf("///\t\t[%d] %s", nItems, obj_p->nome);
+            n_items++;
+            printf("///\t\t[%d] %s", n_items, obj_p->nome);
 
             // alinhar a borda do quadro
-            int nEspacos = 26 - strlen(obj_p->nome);
-            for (int j = 0; j < nEspacos; j++) {
+            int n_espacos = 26 - strlen(obj_p->nome);
+            for (int j = 0; j < n_espacos; j++) {
                 printf(" ");
             }
             printf("///\n");
         }
     }
-    if (nItems == 0) {
+    if (n_items == 0) {
         printf("///             INVENTARIO VAZIO              ///\n");
     }
 
@@ -34,7 +34,7 @@ void abrirInventario(void) {
         "/////////////////////////////////////////////////\n\n");
 }
 
-void moverObjeto(objeto_t *objeto, objeto_t *destino) {
+void mover_objeto(objeto_t *objeto, objeto_t *destino) {
     if (objeto == NULL) {
         printf("Objeto não encontrado.\n");
     } else if (objeto->localizacao == NULL) {
@@ -64,33 +64,33 @@ void moverObjeto(objeto_t *objeto, objeto_t *destino) {
     }
 }
 
-objeto_t *pegarObItem(char *verbo, char *substantivo, objeto_t *locAtual) {
-    objeto_t *objeto = procurarObjeto(substantivo);
-    if (locAtual == NULL) {
+objeto_t *pegar_ob_item(char *verbo, char *substantivo, objeto_t *loc_atual) {
+    objeto_t *objeto = procurar_objeto(substantivo);
+    if (loc_atual == NULL) {
         printf("Oque você quer \"%s\"?\n", verbo);
     } else if (objeto == NULL) {
         printf("Oque você quer \"%s\"?\n", verbo);
-    } else if (objeto == locAtual) {
+    } else if (objeto == loc_atual) {
         objeto = NULL;
         printf("Você não pode fazer isso.\n");
-    } else if (objeto->localizacao != locAtual) {
-        if (locAtual == jogador) {
+    } else if (objeto->localizacao != loc_atual) {
+        if (loc_atual == jogador) {
             printf("Você não está com \"%s\".\n", substantivo);
         } else {
             printf("Você não pode pegar \"%s\" de \"%s\".\n", substantivo,
-                    locAtual->nome);
+                    loc_atual->nome);
         }
         objeto = NULL;
     }
     return objeto;
 }
 
-void darItem(char *subs) {
+void dar_item(char *subs) {
     printf(">>> Não implementado <<<\n");
 }
 
-void pegarItem(char *subs) {
-    objeto_t *objeto = procurarObjeto(subs);
+void pegar_item(char *subs) {
+    objeto_t *objeto = procurar_objeto(subs);
     if (objeto == jogador) {
         printf("Comando não permitido.\n");
     } else if (objeto->localizacao == jogador) {
@@ -98,10 +98,10 @@ void pegarItem(char *subs) {
     } else if (objeto == vizinho) {
         printf("Você não pode guardar \"%s\" no seu inventário.\n", objeto->nome);
     } else {
-        moverObjeto(objeto, jogador);
+        mover_objeto(objeto, jogador);
     }
 }
 
-void largarItem(char *subs) {
-    moverObjeto(jogador, jogador->localizacao);
+void largar_item(char *subs) {
+    mover_objeto(jogador, jogador->localizacao);
 }

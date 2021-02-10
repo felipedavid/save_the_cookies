@@ -9,8 +9,8 @@
 #include "utils.h"
 #include "inventario.h"
 
-bool obterEntrada(void);
-bool executarEntrada(void);
+bool obter_entrada(void);
+bool executar_entrada(void);
 
 static char entrada[256] = "info";
 
@@ -18,17 +18,17 @@ int main(void) {
     // 4/15
     // Acho que essa funcionalidade já está próximo suficiente dos requisitos 
     // do 'sistema de navegação'
-    while (executarEntrada() && obterEntrada());
+    while (executar_entrada() && obter_entrada());
 
     return EXIT_SUCCESS;
 }
 
-bool obterEntrada(void) {
+bool obter_entrada(void) {
     printf("\n>>> ");
     return fgets(entrada, sizeof(entrada), stdin);
 }
 
-bool executarEntrada(void) {
+bool executar_entrada(void) {
     clear();
     // Pensando em uma maneira sem muita gambiarra de se coletar o verbo e o
     // substantivo da entrada do jogador. Por enquanto, vamo de strtok mesmo.
@@ -49,19 +49,20 @@ bool executarEntrada(void) {
     } else if (!strcmp(verbo, "clear")) {
         clear();
     } else if (!strcmp(verbo, "inventario")) {
-        abrirInventario();
+        abrir_inventario();
     } else if (!strcmp(verbo, "ir")) {
         ir(substantivo);
     } else if (!strcmp(verbo, "pegar")) {
-        pegarItem(substantivo);
+        pegar_item(substantivo);
     } else if (!strcmp(verbo, "dar")) {
-        darItem(substantivo);
+        dar_item(substantivo);
     } else if (!strcmp(verbo, "largar")) {
-        largarItem(substantivo);
+        largar_item(substantivo);
     } else if (!strcmp(verbo, "rank")) {
-        mostrarRanking();
+        mostrar_ranking();
     } else {
         printf("Comando '%s' não existe.\n", verbo);
+        printf("Digite 'ajuda' para ver os comandos válidos.\n");
     }
     return true;
 }

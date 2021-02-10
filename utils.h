@@ -1,6 +1,5 @@
-objeto_t *testarNPC(void);
-// tava sem ideia de onde colocar então vai na utils por enquanto
+objeto_t *testar_NPC(void);
 void venceu(void);
 void perdeu(void);
-char *parseVerbo(char *entrada);
-char *parseSubstantivo(char *entrada);
+char *parse_verbo(char *entrada);
+char *parse_substantivo(char *entrada);

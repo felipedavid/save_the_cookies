@@ -11,7 +11,7 @@ extern objeto_t objetos[];
 #define jogador        (objetos+3)
 #define biscoito       (objetos+4)
 #define estilingue     (objetos+5)
-#define finalDoArray   (objetos+6)
+#define final_array    (objetos+6)
 
-int objetosEmLocalizacao(objeto_t *localizacao);
-objeto_t *procurarObjeto(char *subs);
+int objetos_em_localizacao(objeto_t *localizacao);
+objeto_t *procurar_objeto(char *subs);

@@ -67,14 +67,14 @@ void ajuda(void) {
 
 void olhar(char *substantivo) {
     printf("Você está na(o) %s\n", jogador->localizacao->info);
-    objetosEmLocalizacao(jogador->localizacao);
+    objetos_em_localizacao(jogador->localizacao);
 }
 
 void ir(char *substantivo) {
     if (substantivo == NULL) {
         printf("Pra onde você quer ir?\n"); 
     } else {
-        for (int i = 0; &objetos[i] != finalDoArray ; i++) {
+        for (int i = 0; &objetos[i] != final_array; i++) {
             if (!strcmp(objetos[i].nome, substantivo)) {
                 jogador->localizacao = &objetos[i];
             }

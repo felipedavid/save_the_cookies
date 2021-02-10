@@ -5,13 +5,13 @@
 #include "comandos.h"
 
 // TODO: Implementar 'rankingJogadores' como uma linked list
-JOGADOR rankingJogadores[] = {
+JOGADOR ranking_jogadores[] = {
     {"Felipe David", "asdkjfaskdjf@gmail.com", 40, {17,2,2001}, NULL},
     {"asfdkj ajsdfkj", "sadfkljasdfj@gmail.com", 30, {2,5,2000}, NULL},
 };
 
 // 3/15
-void cadastrarRanking(void) {
+void cadastrar_ranking(void) {
     char nome[256], email[256], c;
     int dia, mes, ano;
 
@@ -33,10 +33,10 @@ void cadastrarRanking(void) {
     getchar();
 }
 
-void mostrarRanking(void) {
+void mostrar_ranking(void) {
     JOGADOR *jogador = NULL;
     int i = 1;
-    for (jogador = rankingJogadores; jogador != fimJogadores; jogador++) {
+    for (jogador = ranking_jogadores; jogador != fim_jogadores; jogador++) {
         printf("%d°) %s\t%d pontos.\n", i, jogador->nome, jogador->pontos);
         i++;
     }
