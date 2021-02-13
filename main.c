@@ -3,11 +3,11 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include "ranking.h"
 #include "comandos.h"
 #include "objeto.h"
 #include "utils.h"
 #include "inventario.h"
+#include "ranking.h"
 
 bool obter_entrada(void);
 bool executar_entrada(void);
@@ -58,8 +58,8 @@ bool executar_entrada(void) {
         dar_item(substantivo);
     } else if (!strcmp(verbo, "largar")) {
         largar_item(substantivo);
-    } else if (!strcmp(verbo, "rank")) {
-        mostrar_ranking();
+    } else if (!strcmp(verbo, "rank") || !strcmp(verbo, "ranking")) {
+        mostrar_ranking(NULL);
     } else {
         printf("Comando '%s' não existe.\n", verbo);
         printf("Digite 'ajuda' para ver os comandos válidos.\n");

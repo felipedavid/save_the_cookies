@@ -1,17 +1,14 @@
-void cadastrar_ranking(void);
-void mostrar_ranking(void);
-
-typedef struct {
-    int dia, mes, ano;
-} DATA;
-
-typedef struct JOGADOR {
+typedef struct jogador_t {
     char *nome;
-    char *email;
     int pontos;
-    DATA nascimento;
-    struct JOGADOR *next;
-} JOGADOR;
+    struct jogador_t *next;
+} jogador_t;
 
-extern JOGADOR ranking_jogadores[];
-#define fim_jogadores (ranking_jogadores+2)
+typedef struct ranking_t {
+    jogador_t *head;
+} ranking_t;
+
+ranking_t *criar_ranking(void);
+void free_ranking(ranking_t *ranking);
+bool inserir_jogador(ranking_t *ranking, char *nome, int pontos);
+void mostrar_ranking(ranking_t *ranking);
