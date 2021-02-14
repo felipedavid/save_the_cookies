@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "objeto.h"
 #include "utils.h"
@@ -34,6 +35,44 @@ void abrir_inventario(void) {
         "/////////////////////////////////////////////////\n\n");
 }
 
+bool objeto_tem_nome(objeto_t *objeto, char *substantivo) {
+    if (substantivo != NULL && *substantivo != '\0' && 
+        !strcmp(substantivo, objeto->nome)) {
+        return true;
+    }
+    return false;
+}
+
+objeto_t *procurar_objeto(char *substantivo) {
+    objeto_t *obj_ptr, *objeto_encontrado = NULL;
+    for (obj_ptr = objetos; obj_ptr < final_array; obj_ptr++) {
+        if (objeto_tem_nome(obj_ptr, substantivo)) {
+            objeto_encontrado = obj_ptr;
+        }
+    }
+    return objeto_encontrado;
+}
+
+objeto_t *campo_de_visao(char *proposito, char *substantivo) {
+    objeto_t *obj_ptr = procurar_objeto(substantivo);
+    if (obj_ptr == NULL) {
+        printf("Eu não entendo %s.\n", proposito);
+    }
+    else if (!(obj_ptr == jogador ||
+               obj_ptr == jogador->localizacao ||
+               obj_ptr->localizacao == jogador ||
+               obj_ptr->localizacao == jogador->localizacao ||
+               checar_passagem(jogador->localizacao, obj_ptr) != NULL ||
+               (obj_ptr->localizacao != NULL && 
+               (obj_ptr->localizacao->localizacao == jogador ||
+                obj_ptr->localizacao->localizacao == jogador->localizacao))))
+    {
+        printf("Você não vê nenhum '%s'.\n", substantivo);
+        obj_ptr = NULL;
+    }
+    return obj_ptr;;
+}
+
 void mover_objeto(objeto_t *objeto, objeto_t *destino) {
     if (objeto == NULL) {
         printf("Objeto não encontrado.\n");
@@ -64,7 +103,7 @@ void mover_objeto(objeto_t *objeto, objeto_t *destino) {
     }
 }
 
-objeto_t *pegar_ob_item(char *verbo, char *substantivo, objeto_t *loc_atual) {
+objeto_t *procurar_inventario(objeto_t *loc_atual, char *verbo, char *substantivo) {
     objeto_t *objeto = procurar_objeto(substantivo);
     if (loc_atual == NULL) {
         printf("Oque você quer \"%s\"?\n", verbo);
@@ -86,12 +125,21 @@ objeto_t *pegar_ob_item(char *verbo, char *substantivo, objeto_t *loc_atual) {
 }
 
 void dar_item(char *subs) {
-    printf(">>> Não implementado <<<\n");
+    mover_objeto(procurar_inventario(jogador, "dar", subs), testar_NPC());
+}
+
+void pedir_item(char *subs) {
+    mover_objeto(procurar_inventario(testar_NPC(), "pedir", subs), jogador);
+}
+
+void largar_item(char *subs) {
+    mover_objeto(procurar_inventario(jogador, "largar", subs), jogador->localizacao);
 }
 
 void pegar_item(char *subs) {
-    objeto_t *objeto = procurar_objeto(subs);
-    if (objeto == jogador) {
+    objeto_t *objeto = campo_de_visao("oque você quer pegar", subs);
+    if (objeto == NULL) {
+    } else if (objeto == jogador) {
         printf("Comando não permitido.\n");
     } else if (objeto->localizacao == jogador) {
         printf("O objeto \"%s\" já está no seu inventário.\n", objeto->nome);
@@ -100,8 +148,4 @@ void pegar_item(char *subs) {
     } else {
         mover_objeto(objeto, jogador);
     }
-}
-
-void largar_item(char *subs) {
-    mover_objeto(jogador, jogador->localizacao);
 }

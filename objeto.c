@@ -28,16 +28,3 @@ int objetos_em_localizacao(objeto_t *localizacao) {
     }
     return n_objetos;;
 }
-
-objeto_t *procurar_objeto(char *subs) {
-    objeto_t *objeto = NULL;
-    if (subs == NULL) {
-        return objeto;
-    }
-    for (objeto_t *obj_p = objetos; obj_p != final_array; obj_p++) {
-        if (!strcmp(subs, obj_p->nome)) {
-            objeto = obj_p;
-        }
-    }
-    return objeto;
-}

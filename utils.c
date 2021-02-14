@@ -55,6 +55,5 @@ objeto_t *checar_passagem(objeto_t *origem, objeto_t *destino) {
             return obj_p;
         }
     }
-
     return NULL;
 }
