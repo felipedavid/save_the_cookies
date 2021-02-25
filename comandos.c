@@ -68,7 +68,8 @@ void ajuda(void) {
 }
 
 void olhar(char *substantivo) {
-    if (substantivo != NULL && !strcmp(substantivo, "redor")) {
+    if (substantivo != NULL && (!strcmp(substantivo, "redor") || 
+                                !strcmp(substantivo, "volta"))  ) {
         printf("Você está em %s.\n", jogador->localizacao->info);
         objetos_em_localizacao(jogador->localizacao);
     } else {
