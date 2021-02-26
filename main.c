@@ -26,13 +26,11 @@ bool obter_entrada(void) {
 }
 
 bool executar_entrada(void) {
-    //clear();
-    // Pensando em uma maneira sem muita gambiarra de se coletar o verbo e o
-    // substantivo da entrada do jogador. Por enquanto, vamo de strtok mesmo.
-    // char *verbo = parseVerbo(entrada)
-    // char *substantivo = parseSubstantivo(entrada)
-    char *verbo = strtok(entrada, " \n");
-    char *substantivo = strtok(NULL, "\n");
+    char *verbo = parse_verbo(entrada);
+    char *substantivo = parse_substantivo(entrada);
+    //printf("tamanho_entrada = %d, verbo = %s, substantivo = '%s'\n", 
+    //    numero_palavras(entrada), verbo, substantivo);
+
     if (verbo == NULL) return true;
 
     if (!strcmp(verbo, "sair")) {
@@ -61,5 +59,9 @@ bool executar_entrada(void) {
         printf("Comando '%s' não existe.\n", verbo);
         printf("Digite 'ajuda' para ver os comandos válidos.\n");
     }
+
+    free(verbo);
+    free(substantivo);
+
     return true;
 }
