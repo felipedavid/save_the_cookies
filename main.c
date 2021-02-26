@@ -15,9 +15,6 @@ bool executar_entrada(void);
 static char entrada[256] = "info";
 
 int main(void) {
-    // 4/15
-    // Acho que essa funcionalidade já está próximo suficiente dos requisitos 
-    // do 'sistema de navegação'
     while (executar_entrada() && obter_entrada());
 
     return EXIT_SUCCESS;
@@ -29,7 +26,7 @@ bool obter_entrada(void) {
 }
 
 bool executar_entrada(void) {
-    clear();
+    //clear();
     // Pensando em uma maneira sem muita gambiarra de se coletar o verbo e o
     // substantivo da entrada do jogador. Por enquanto, vamo de strtok mesmo.
     // char *verbo = parseVerbo(entrada)

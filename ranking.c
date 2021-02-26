@@ -7,10 +7,11 @@
 
 #include "ranking.h"
 
+// TODO: checar oque está causando o memory leak
 void free_ranking(ranking_t *ranking) {
     if (ranking == NULL || ranking->head == NULL) return;
 
-    jogador_t *current, *tmp; 
+    jogador_t *tmp, *current = ranking->head; 
     while (current != NULL) {
         tmp = current;
         current = current->next;
@@ -18,6 +19,7 @@ void free_ranking(ranking_t *ranking) {
         free(tmp);
     }
     free(ranking);
+    ranking = NULL;
 }
 
 ranking_t *criar_ranking(void)  {
@@ -56,7 +58,14 @@ bool inserir_jogador(ranking_t *ranking, char *nome, int pontos) {
 }
 
 void mostrar_ranking(ranking_t *ranking) {
-    printf("\t>>> Funcionalidade ainda não implementada <<<\n");
-    printf("\tDigite 'ajuda' para ver os comandos disponíveis.\n");
-    return;
+    if (ranking == NULL || ranking->head == NULL) {
+        printf("Ranking não existe.\n");
+        return;
+    }
+
+    jogador_t *current = ranking->head;
+    while (current != NULL) {
+        printf("%s, %d pontos.\n", current->nome, current->pontos);
+        current = current->next;
+    };
 }
