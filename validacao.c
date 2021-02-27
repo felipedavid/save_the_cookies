@@ -5,10 +5,17 @@
 #include <stdio.h>
 
 bool eh_letra(char caractere) {
+    if ((caractere >= 'A' && caractere <= 'Z') ||
+        (caractere >= 'a' && caractere <= 'z')) {
+        return true;
+    }
     return false;
 }
 
 bool eh_numero(char caractere) {
+    if (caractere >= '0' && caractere <= '9') {
+        return true;
+    }
     return false;
 }
 
@@ -21,9 +28,7 @@ bool pontos_valido(int pontos) {
 
 bool nome_valido(char *nome) {
     for (int i = 0; i < strlen(nome); i++) {
-        if ((nome[i] >= 'A' && nome[i] <= 'Z') ||
-            (nome[i] >= 'a' && nome[i] <= 'z') ||
-            (nome[i] == ' ')) {
+        if (eh_letra(nome[i]) || (nome[i] == ' ')) {
             continue;
         }
         return false;
@@ -46,10 +51,9 @@ bool senha_valida(char *senha) {
         if (senha[i] == ' '  || senha[i] == '\0' || 
             senha[i] == '\n' || senha[i] == '\t') {
             return false;
-        } else if ((senha[i] >= 'A' && senha[i] <= 'Z') ||
-            (senha[i] >= 'a' && senha[i] <= 'z')) {
+        } else if (eh_letra(senha[i])) {
             c++;
-        } else if (senha[i] >= '0' && senha[i] <= '9') {
+        } else if (eh_numero(senha[i])) {
             n++;
         } else {
             s++;
