@@ -74,6 +74,7 @@ void olhar(char *substantivo) {
         objetos_em_localizacao(jogador->localizacao);
     } else {
         printf("Não entendo oque você quer ver.\n");
+        printf("Ex de uso: \">>> olhar em volta\"\n");
     }
 }
 

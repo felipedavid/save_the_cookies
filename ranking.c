@@ -7,6 +7,15 @@
 
 #include "ranking.h"
 
+ranking_t *criar_ranking(void)  {
+    ranking_t *ranking = malloc(sizeof(ranking_t));
+    if (ranking == NULL)
+        return NULL;
+
+    ranking->head = NULL;
+    return ranking;
+}
+
 // TODO: checar oque está causando o memory leak
 void free_ranking(ranking_t *ranking) {
     if (ranking == NULL || ranking->head == NULL) return;
@@ -22,16 +31,7 @@ void free_ranking(ranking_t *ranking) {
     ranking = NULL;
 }
 
-ranking_t *criar_ranking(void)  {
-    ranking_t *ranking = malloc(sizeof(ranking_t));
-    if (ranking == NULL)
-        return NULL;
-
-    ranking->head = NULL;
-    return ranking;
-}
-
-bool inserir_jogador(ranking_t *ranking, char *nome, int pontos) {
+bool inserir_jogador_em_ranking(ranking_t *ranking, char *nome, int pontos) {
     if (ranking == NULL) return false;
 
     jogador_t *jogador = malloc(sizeof(jogador_t));

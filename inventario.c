@@ -57,6 +57,8 @@ objeto_t *campo_de_visao(char *proposito, char *substantivo) {
     objeto_t *obj_ptr = procurar_objeto(substantivo);
     if (obj_ptr == NULL) {
         printf("Eu não entendo %s.\n", proposito);
+        printf("Ex de uso: \">>> pegar biscoito\"\n");
+        printf("Digite 'inventario' para ver itens \"pegos\".\n");
     }
     else if (!(obj_ptr == jogador ||
                obj_ptr == jogador->localizacao ||
