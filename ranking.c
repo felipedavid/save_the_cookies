@@ -1,5 +1,6 @@
-/* Essa implementação não segue as práticas comuns de segurança/legibilidade então 
-   pode esperar alguns buffers overflows e double free hahaha xD */
+// Sim, pra esse caso em específico seria lógico utilizar um array.
+// Só que queria revisar umas data structures que não implementava em C faz tempo
+// (por mais idiota que seja aplicalas neste caso, kkkkk).
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
