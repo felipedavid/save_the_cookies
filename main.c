@@ -28,8 +28,6 @@ bool obter_entrada(void) {
 bool executar_entrada(void) {
     char *verbo = parse_verbo(entrada);
     char *substantivo = parse_substantivo(entrada);
-    //printf("tamanho_entrada = %d, verbo = %s, substantivo = '%s'\n", 
-    //    numero_palavras(entrada), verbo, substantivo);
 
     if (verbo == NULL) return true;
 
@@ -54,7 +52,7 @@ bool executar_entrada(void) {
     } else if (!strcmp(verbo, "largar")) {
         largar_item(substantivo);
     } else if (!strcmp(verbo, "rank") || !strcmp(verbo, "ranking")) {
-        mostrar_ranking(NULL);
+        rank(substantivo);
     } else {
         printf("Comando '%s' não existe.\n", verbo);
         printf("Digite 'ajuda' para ver os comandos válidos.\n");

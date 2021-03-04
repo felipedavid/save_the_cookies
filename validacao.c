@@ -37,6 +37,23 @@ bool nome_valido(char *nome) {
 }
 
 bool email_valido(char *email) {
+    int pArroba, pPonto;
+    bool pontoPresente = false, arrobaPresente = false;
+
+    for (int i = 0; i < strlen(email); i++) {
+        if (email[i] == '.') {
+            pPonto = i;
+            pontoPresente = true;
+        } else if (email[i] == '@') {
+            pArroba = i;
+            arrobaPresente = true;
+        }
+    }
+
+    if (pontoPresente && arrobaPresente && (pArroba > 2) &&
+        (pArroba+2 < pPonto)) {
+        return true;
+    } 
     return false;
 }
 

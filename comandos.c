@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
+#include "ranking.h"
 #include "comandos.h"
 #include "objeto.h"
+#include "validacao.h"
 
 void info(void) {
     puts("/////////////////////////////////////////////////////////////////////////////\n"
@@ -90,6 +93,41 @@ void ir(char *substantivo) {
     }
     printf("Agora ");
     olhar(substantivo);
+}
+
+void limpar_lixo(void)
+{
+    char c;
+    while((c = getchar()) != '\n' && c != EOF);
+}
+
+void rank(char *substantivo) {
+    if (strcmp(substantivo, "add")) {
+        printf("Ranking não criado.\n Tente '>>> ranking add'.\n"); 
+        return;
+    }
+
+    printf("(Funcionalidade temporária só pra fins de debugging.)\n\n");
+
+    char email[256];
+    email:printf("Email: ");
+    scanf("%s", email);
+    if (!email_valido(email)) {
+        printf("Insira um email válido.\n\n");
+        limpar_lixo();
+        goto email;
+    }
+
+    char nome[256];
+    nome:printf("Nome: ");
+    scanf("%s", nome);
+    if (!nome_valido(nome)) {
+        printf("Insira um nome válido.\n\n");
+        goto nome;
+    }
+    limpar_lixo();
+
+    printf("Tudo ok.");
 }
 
 void clear(void) {

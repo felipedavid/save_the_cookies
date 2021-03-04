@@ -7,6 +7,7 @@
 #include <stdio.h>
 
 #include "ranking.h"
+#include "validacao.h"
 
 ranking_t *criar_ranking(void)  {
     ranking_t *ranking = malloc(sizeof(ranking_t));
@@ -68,5 +69,5 @@ void mostrar_ranking(ranking_t *ranking) {
     while (current != NULL) {
         printf("%s, %d pontos.\n", current->nome, current->pontos);
         current = current->next;
-    };
+    }
 }
