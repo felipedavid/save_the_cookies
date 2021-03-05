@@ -1,4 +1,5 @@
 // 6/15
+// 7/15
 // OBS: Inserir o comando ">>> ranking add" para testar a validacao.
 #include <stdbool.h>
 #include <ctype.h>
