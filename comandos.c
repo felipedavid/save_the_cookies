@@ -104,19 +104,27 @@ void rank(char *substantivo) {
     printf("(Funcionalidade temporária só pra fins de debugging.)\n\n");
 
     char email[256];
-    email:printf("Email: ");
-    fgets(email, 256, stdin);
-    if (!email_valido(email)) {
-        printf("Insira um email válido.\n\n");
-        goto email;
+    while(true) {
+        printf("Email: ");
+        fgets(email, 256, stdin);
+
+        if (email_valido(email)) {
+            break;
+        } else {
+            printf("Insira um email válido.\n\n"); 
+        }
     }
 
     char nome[256];
-    nome:printf("Nome: ");
-    fgets(nome, 256, stdin);
-    if (!nome_valido(nome)) {
-        printf("Insira um nome válido.\n\n");
-        goto nome;
+    while (true) {
+        printf("Nome: ");
+        fgets(nome, 256, stdin);
+
+        if (nome_valido(nome)) {
+            break;
+        } else {
+            printf("Insira um nome válido.\n\n");
+        }
     }
 
     printf("Tudo ok.");
