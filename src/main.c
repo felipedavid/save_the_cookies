@@ -29,7 +29,7 @@ bool executar_entrada(void) {
     char *verbo = parse_verbo(entrada);
     char *substantivo = parse_substantivo(entrada);
 
-    if (verbo == NULL) return true;
+    if (!strlen(verbo)) return true;
 
     if (!strcmp(verbo, "sair")) {
         return false;

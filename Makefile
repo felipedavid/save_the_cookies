@@ -1,2 +1,2 @@
-game: *.c
-	gcc -Wall -o game *.c
+game: ./src/*.c
+	gcc -Wall -o ./bin/game ./src/*.c
