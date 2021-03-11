@@ -10,7 +10,6 @@ biscoitos possível.
 
 Building
 ----
-    $ sudo apt install build-essential -y
     $ git clone https://github.com/felipedavid/save_the_cookies
     $ cd save_the_cookies
     $ make game
