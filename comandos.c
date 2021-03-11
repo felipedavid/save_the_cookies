@@ -95,12 +95,6 @@ void ir(char *substantivo) {
     olhar(substantivo);
 }
 
-void limpar_lixo(void)
-{
-    char c;
-    while((c = getchar()) != '\n' && c != EOF);
-}
-
 void rank(char *substantivo) {
     if (strcmp(substantivo, "add")) {
         printf("Ranking não criado.\n Tente '>>> ranking add'.\n"); 
@@ -111,21 +105,19 @@ void rank(char *substantivo) {
 
     char email[256];
     email:printf("Email: ");
-    scanf("%s", email);
+    fgets(email, 256, stdin);
     if (!email_valido(email)) {
         printf("Insira um email válido.\n\n");
-        limpar_lixo();
         goto email;
     }
 
     char nome[256];
     nome:printf("Nome: ");
-    scanf("%s", nome);
+    fgets(nome, 256, stdin);
     if (!nome_valido(nome)) {
         printf("Insira um nome válido.\n\n");
         goto nome;
     }
-    limpar_lixo();
 
     printf("Tudo ok.");
 }

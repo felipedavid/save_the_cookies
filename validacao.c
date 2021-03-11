@@ -29,7 +29,7 @@ bool pontos_valido(int pontos) {
 }
 
 bool nome_valido(char *nome) {
-    for (int i = 0; i < strlen(nome); i++) {
+    for (int i = 0; i < strlen(nome)-1; i++) {
         if (eh_letra(nome[i]) || (nome[i] == ' ')) {
             continue;
         }
@@ -39,21 +39,23 @@ bool nome_valido(char *nome) {
 }
 
 bool email_valido(char *email) {
-    int pArroba, pPonto;
+    int posicaoArroba, posicaoPonto;
     bool pontoPresente = false, arrobaPresente = false;
 
-    for (int i = 0; i < strlen(email); i++) {
+    for (int i = 0; i < strlen(email)-1; i++) {
         if (email[i] == '.') {
-            pPonto = i;
+            posicaoPonto = i;
             pontoPresente = true;
         } else if (email[i] == '@') {
-            pArroba = i;
+            posicaoArroba = i;
             arrobaPresente = true;
+        } else if (!(eh_letra(email[i]) || eh_numero(email[i]))) {
+            return false;
         }
     }
 
-    if (pontoPresente && arrobaPresente && (pArroba > 2) &&
-        (pArroba+2 < pPonto)) {
+    if (pontoPresente && arrobaPresente && (posicaoArroba > 2) &&
+        (posicaoArroba+2 < posicaoPonto)) {
         return true;
     } 
     return false;
@@ -70,7 +72,9 @@ bool senha_valida(char *senha) {
         if (senha[i] == ' '  || senha[i] == '\0' || 
             senha[i] == '\n' || senha[i] == '\t') {
             return false;
-        } else if (eh_letra(senha[i])) {
+        } 
+
+        if (eh_letra(senha[i])) {
             c++;
         } else if (eh_numero(senha[i])) {
             n++;
@@ -79,7 +83,7 @@ bool senha_valida(char *senha) {
         }
     }
 
-    if (n >= 1 && (c+n+s) >= 8) {
+    if (n > 0 && (c+n+s) >= 8) {
         return true;
     }
     return false;
