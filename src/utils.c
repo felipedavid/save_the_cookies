@@ -60,6 +60,8 @@ char *parse_verbo(char *entrada) {
     primeira_palavra[i] = '\0';
 
     char *verbo = (char *) malloc(strlen(primeira_palavra) + 1);
+    if (verbo == NULL) return NULL;
+
     strcpy(verbo, primeira_palavra);
 
     return verbo;
@@ -71,8 +73,10 @@ char *parse_substantivo(char *entrada) {
     char *substantivo, *ultima_palavra = strrchr(entrada, ' ');
     if (ultima_palavra && *(ultima_palavra+1)) {
         ultima_palavra[strcspn(ultima_palavra, "\n")] = 0;
+
         substantivo = (char *) malloc(strlen(ultima_palavra+1) + 1);
         if (substantivo == NULL) return NULL;
+        
         strcpy(substantivo, ultima_palavra+1);
     }
     return substantivo;
