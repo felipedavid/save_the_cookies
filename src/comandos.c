@@ -84,6 +84,7 @@ void olhar(char *substantivo) {
 void ir(char *substantivo) {
     if (substantivo == NULL) {
         printf("Pra onde você quer ir?\n"); 
+        return;
     } else {
         for (int i = 0; &objetos[i] != final_array; i++) {
             if (!strcmp(objetos[i].nome, substantivo)) {
@@ -91,11 +92,13 @@ void ir(char *substantivo) {
             }
         }
     }
-    printf("Agora ");
+    //printf("Agora ");
     olhar(substantivo);
 }
 
 void rank(char *substantivo) {
+    if (!substantivo) return;
+
     if (strcmp(substantivo, "add")) {
         printf("Ranking não criado.\n Tente '>>> ranking add'.\n"); 
         return;
