@@ -16,7 +16,7 @@ int main(void) {
            obter_entrada(entrada, sizeof(entrada)));
 
     salvar_ranking(ranking);
-    free(ranking);
+    free_ranking(ranking);
 
     return EXIT_SUCCESS;
 }
