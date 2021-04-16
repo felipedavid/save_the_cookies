@@ -42,6 +42,7 @@ void info(void) {
          "///                                                                       ///\n"
          "/// ps: a historinha do game é pura tiração de sarro.                     ///\n"
          "/////////////////////////////////////////////////////////////////////////////\n\n"
+         "\t>>> Digite 'ranking' para visualizar os jogadores com maior pontuação...\n"
          "\t>>> Digite 'ajuda' para visualizar o manual de comandos...\n"
          "\t>>> Digite 'clear' para limpar a tela...\n"
          "\t>>> Digite 'sair' para fechar o game...\n");
@@ -94,43 +95,6 @@ void ir(char *substantivo) {
     }
     //printf("Agora ");
     olhar(substantivo);
-}
-
-void rank(char *substantivo) {
-    if (!substantivo) return;
-
-    if (strcmp(substantivo, "add")) {
-        printf("Ranking não criado.\n Tente '>>> ranking add'.\n"); 
-        return;
-    }
-
-    printf("(Funcionalidade temporária só pra fins de debugging.)\n\n");
-
-    char email[256];
-    while(true) {
-        printf("Email: ");
-        fgets(email, 256, stdin);
-
-        if (email_valido(email)) {
-            break;
-        } else {
-            printf("Insira um email válido.\n\n"); 
-        }
-    }
-
-    char nome[256];
-    while (true) {
-        printf("Nome: ");
-        fgets(nome, 256, stdin);
-
-        if (nome_valido(nome)) {
-            break;
-        } else {
-            printf("Insira um nome válido.\n\n");
-        }
-    }
-
-    printf("Tudo ok.");
 }
 
 void clear(void) {

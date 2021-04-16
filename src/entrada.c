@@ -8,13 +8,14 @@
 #include "comandos.h"
 #include "inventario.h"
 #include "parser.h"
+#include "ranking.h"
 
 bool obter_entrada(char *entrada, size_t tamanho_entrada) {
     printf("\n>>> ");
     return fgets(entrada, tamanho_entrada, stdin);
 }
 
-bool executar_entrada(char *entrada) {
+bool executar_entrada(char *entrada, ranking_t *ranking) {
     char *verbo = parse_verbo(entrada);
     char *substantivo = parse_substantivo(entrada);
 
@@ -40,8 +41,10 @@ bool executar_entrada(char *entrada) {
         dar_item(substantivo);
     } else if (!strcmp(verbo, "largar")) {
         largar_item(substantivo);
-    } else if (!strcmp(verbo, "rank") || !strcmp(verbo, "ranking")) {
-        rank(substantivo);
+    } else if (!strcmp(verbo, "add")) {
+        prompt_inserir_jogador(ranking, substantivo);
+    } else if (!strcmp(verbo, "ranking")) {
+        mostrar_ranking(ranking);
     } else {
         printf("Comando '%s' não existe.\n", verbo);
         printf("Digite 'ajuda' para ver os comandos válidos.\n");
