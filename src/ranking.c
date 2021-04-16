@@ -60,16 +60,18 @@ bool inserir_jogador_em_ranking(ranking_t *ranking, char *nome, int pontos) {
 }
 
 void mostrar_ranking(ranking_t *ranking) {
-    if (ranking == NULL || ranking->head == NULL) {
-        printf("Nenhum jogador no ranking.\n");
-        return;
-    }
     printf("/////////////////////////////////////////////////\n"
         "///                                           ///\n"
         "///    ===================================    ///\n"
         "///    = = = =       Ranking       = = = =    ///\n"
         "///    ===================================    ///\n"
         "///                                           ///\n");
+    if (ranking == NULL || ranking->head == NULL) {
+        printf("///               RANKING VAZIO               ///\n");
+        printf("///                                           ///\n"
+        "/////////////////////////////////////////////////\n\n");
+        return;
+    }
 
     int n_jogadores = 0;
     jogador_t *current = ranking->head;
@@ -85,7 +87,6 @@ void mostrar_ranking(ranking_t *ranking) {
         current = current->next;
     }
     if (n_jogadores == 0) {
-        printf("///             RANKING VAZIO     ///\n");
     }
 
     printf("///                                           ///\n"
