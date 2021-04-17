@@ -6,7 +6,7 @@
 #include "ranking.h"
 #include "entrada.h"
 
-int main(void) {
+int main() {
 
     ranking_t *ranking = criar_ranking();
     load_ranking(ranking);

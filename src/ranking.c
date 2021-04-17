@@ -1,6 +1,3 @@
-// Sim, pra esse caso em específico seria lógico utilizar um array.
-// Só que queria revisar umas data structures que não implementava em C faz tempo
-// (por mais idiota que seja aplicalas neste caso, kkkkk).
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
@@ -8,6 +5,7 @@
 
 #include "ranking.h"
 #include "validacao.h"
+#include "paineis.h"
 
 ranking_t *criar_ranking(void)  {
     ranking_t *ranking = malloc(sizeof(ranking_t));
@@ -18,7 +16,6 @@ ranking_t *criar_ranking(void)  {
     return ranking;
 }
 
-// TODO: checar oque está causando o memory leak
 void free_ranking(ranking_t *ranking) {
     if (ranking == NULL || ranking->head == NULL) return;
 
@@ -39,10 +36,7 @@ bool inserir_jogador_em_ranking(ranking_t *ranking, char *nome, int pontos) {
     jogador_t *jogador = malloc(sizeof(jogador_t));
     if (jogador == NULL) return false;
 
-    //char *nome_jogador = (char *) malloc(strlen(nome) + 1);
-    //if (nome_jogador == NULL) return false;
     strncpy(jogador->nome, nome, 256);
-    //jogador->nome = nome_jogador;
     jogador->pontos = pontos;
 
     if (ranking->head == NULL) {
@@ -60,16 +54,10 @@ bool inserir_jogador_em_ranking(ranking_t *ranking, char *nome, int pontos) {
 }
 
 void mostrar_ranking(ranking_t *ranking) {
-    printf("/////////////////////////////////////////////////\n"
-        "///                                           ///\n"
-        "///    ===================================    ///\n"
-        "///    = = = =       Ranking       = = = =    ///\n"
-        "///    ===================================    ///\n"
-        "///                                           ///\n");
+    puts(painel_ranking_top);
     if (ranking == NULL || ranking->head == NULL) {
-        printf("///               RANKING VAZIO               ///\n");
-        printf("///                                           ///\n"
-        "/////////////////////////////////////////////////\n\n");
+        puts(painel_ranking_mid_vazio);
+        puts(painel_ranking_bottom);
         return;
     }
 
@@ -89,8 +77,7 @@ void mostrar_ranking(ranking_t *ranking) {
     if (n_jogadores == 0) {
     }
 
-    printf("///                                           ///\n"
-        "/////////////////////////////////////////////////\n\n");
+    puts(painel_ranking_bottom);
 }
 
 // Grava todas as estruturas jogador_t no arquivo 'ranking.dat' sobeescrevendo
@@ -165,5 +152,5 @@ void prompt_inserir_jogador(ranking_t *ranking, char *substantivo) {
     }
 
     inserir_jogador_em_ranking(ranking, nome, 0);
-    printf("Tudo ok.");
+    printf("Jogador adicionado.");
 }

@@ -4,14 +4,10 @@
 
 #include "objeto.h"
 #include "utils.h"
+#include "paineis.h"
 
 void abrir_inventario(void) {
-    printf("/////////////////////////////////////////////////\n"
-        "///                                           ///\n"
-        "///    ===================================    ///\n"
-        "///    = = = =    Seu Inventario   = = = =    ///\n"
-        "///    ===================================    ///\n"
-        "///                                           ///\n");
+    puts(painel_inventario_top);
 
     int n_items = 0;
     for (objeto_t *obj_p = objetos; obj_p != final_array; obj_p++) {
@@ -28,11 +24,10 @@ void abrir_inventario(void) {
         }
     }
     if (n_items == 0) {
-        printf("///             INVENTARIO VAZIO              ///\n");
+        puts(painel_inventario_mid_vazio);
     }
-
-    printf("///                                           ///\n"
-        "/////////////////////////////////////////////////\n\n");
+    
+    puts(painel_inventario_bottom);
 }
 
 bool objeto_tem_nome(objeto_t *objeto, char *substantivo) {
