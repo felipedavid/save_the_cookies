@@ -12,7 +12,8 @@ Building
 ----
     $ git clone https://github.com/felipedavid/save_the_cookies
     $ cd save_the_cookies
-    $ make game
+    $ sudo chmod +x build.sh
+    $ ./build.sh
     $ ./bin/game
 
 TODO
