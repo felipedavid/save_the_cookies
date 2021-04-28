@@ -15,7 +15,7 @@ void perdeu(void) {
 
 objeto_t *testar_NPC(void) {
     for (objeto_t *obj_p = objetos; obj_p != final_array; obj_p++) {
-        if (obj_p == vizinho && obj_p->localizacao == jogador->localizacao) {
+        if (obj_p == vovo && obj_p->localizacao == jogador->localizacao) {
             return obj_p;
         }
     }

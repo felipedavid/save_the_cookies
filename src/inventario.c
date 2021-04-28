@@ -52,18 +52,14 @@ objeto_t *campo_de_visao(char *proposito, char *substantivo) {
     objeto_t *obj_ptr = procurar_objeto(substantivo);
     if (obj_ptr == NULL) {
         printf("Eu não entendo %s.\n", proposito);
-        printf("Ex de uso: \">>> pegar biscoito\"\n");
-        printf("Digite 'inventario' para ver itens \"pegos\".\n");
-    }
-    else if (!(obj_ptr == jogador ||
+    } else if (!(obj_ptr == jogador ||
                obj_ptr == jogador->localizacao ||
                obj_ptr->localizacao == jogador ||
                obj_ptr->localizacao == jogador->localizacao ||
                checar_passagem(jogador->localizacao, obj_ptr) != NULL ||
                (obj_ptr->localizacao != NULL && 
                (obj_ptr->localizacao->localizacao == jogador ||
-                obj_ptr->localizacao->localizacao == jogador->localizacao))))
-    {
+                obj_ptr->localizacao->localizacao == jogador->localizacao)))) {
         printf("Você não vê nenhum '%s'.\n", substantivo);
         obj_ptr = NULL;
     }
@@ -83,7 +79,7 @@ void mover_objeto(objeto_t *objeto, objeto_t *destino) {
         if (destino == jogador->localizacao) {
             printf("Você jogou fora o item: %s.\n", objeto->nome);
         } else if (destino != jogador) {
-            if (destino == vizinho) {
+            if (destino == vovo) {
                 printf("Você deu o item \"%s\" para %s.\n", objeto->nome,
                         destino->nome);
             } else {
@@ -140,7 +136,7 @@ void pegar_item(char *subs) {
         printf("Comando não permitido.\n");
     } else if (objeto->localizacao == jogador) {
         printf("O objeto \"%s\" já está no seu inventário.\n", objeto->nome);
-    } else if (objeto == vizinho) {
+    } else if (objeto == vovo) {
         printf("Você não pode guardar \"%s\" no seu inventário.\n", objeto->nome);
     } else {
         mover_objeto(objeto, jogador);

@@ -8,6 +8,16 @@
 #include "objeto.h"
 #include "validacao.h"
 #include "paineis.h"
+#include "inventario.h"
+#include "utils.h"
+
+void clear(void) {
+#if defined _WIN32 || defined _WIN64
+    system("cls");
+#else
+    system("clear");
+#endif
+}
 
 void info(void) {
     puts(painel_info);
@@ -29,9 +39,19 @@ void olhar(char *substantivo) {
 }
 
 void ir(char *substantivo) {
-    if (substantivo == NULL) {
-        printf("Pra onde você quer ir?\n"); 
-        return;
+    objeto_t *objeto = campo_de_visao("pra onde você quer ir", substantivo);
+    if (!objeto) return;
+
+    if (!checar_passagem(jogador->localizacao, objeto)) {
+        jogador->localizacao = objeto->destino;
+        printf("Feito.\n");
+        olhar("redor");
+    } else if (jogador->localizacao != objeto->localizacao) {
+        printf("Você não vê nenhum %s.\n", substantivo);
+    } else if (objeto->destino) {
+        jogador->localizacao = objeto->destino;
+        puts("Feito.");
+        olhar("redor");
     } else {
         for (int i = 0; &objetos[i] != final_array; i++) {
             if (!strcmp(objetos[i].nome, substantivo)) {
@@ -39,13 +59,4 @@ void ir(char *substantivo) {
             }
         }
     }
-    olhar(substantivo);
-}
-
-void clear(void) {
-#if defined _WIN32 || defined _WIN64
-    system("cls");
-#else
-    system("clear");
-#endif
 }

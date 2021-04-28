@@ -4,15 +4,23 @@
 #include "objeto.h"
 
 objeto_t objetos[] = {
-    {"Sua casa", "casa", NULL, NULL},
-    {"Sua vila", "vila", NULL, NULL},
-    {"Seu vilarejo", "vilarejo", NULL, NULL},
-    {"Seu vizinho", "vizinho", casa, NULL},
-    {"Você", "jogador", casa, NULL},
-    {"Um dos biscoitos que sua vovó fez para você", "biscoito", casa, NULL},
-    {"O seu estilingue", "estilingue", casa, NULL},
-    {"a entrada da sua casa", "entrada", vila, casa},
-    {"a porta de 'saída' da sua casa", "saida", casa, vila},
+    {"sua avó",               "vovo",     casa,     NULL},
+    {"bengala de sua avó",    "bengala",  casa,     NULL},
+    {"você",                  "jogador",  casa,     NULL},
+
+    {"floresta",              "floresta", NULL,     NULL},
+
+    {"casa da sua vovó",      "casa",     NULL,     NULL},
+    {"saída da casa",         "saida",    casa,     floresta},
+    {"entrada da casa",       "entrada",  floresta, casa},
+
+    {"seu quarto",            "quarto",   NULL,     NULL},
+    {"saída do seu quarto",   "saida",    quarto,   casa},
+    {"entrada do seu quarto", "entrada",  casa,     quarto},
+
+    {"caverna",               "caverna",   NULL,     NULL},
+    {"saída da caverna",      "saida",     caverna,  floresta},
+    {"entrada da caverna",    "entrada",   floresta, caverna},
 };
 
 int objetos_em_localizacao(objeto_t *localizacao) {
