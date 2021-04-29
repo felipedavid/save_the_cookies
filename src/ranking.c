@@ -29,7 +29,6 @@ void free_ranking(ranking_t *ranking) {
     ranking = NULL;
 }
 
-// TODO: Inserir jogadores em ordem de pontuação
 bool inserir_jogador_em_ranking(ranking_t *ranking, char *nome, int pontos) {
     if (ranking == NULL) return false;
 
