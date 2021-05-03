@@ -8,7 +8,7 @@ const char* painel_vencedor =
         "///          ===================================================          ///\n"
         "///                                                                       ///\n"
         "/////////////////////////////////////////////////////////////////////////////\n"
-        " >>> Pressione 'enter' para sair.\n";
+        " >>> Pressione 'enter' para sair.";
 
 const char* painel_perdedor =
         "/////////////////////////////////////////////////////////////////////////////\n"
@@ -20,7 +20,7 @@ const char* painel_perdedor =
         "///          ===================================================          ///\n"
         "///                                                                       ///\n"
         "/////////////////////////////////////////////////////////////////////////////\n"
-        " >>> Pressione 'enter' para sair.\n";
+        " >>> Pressione 'enter' para sair.";
 
 const char* painel_info =
          "/////////////////////////////////////////////////////////////////////////////\n"
@@ -59,7 +59,7 @@ const char* painel_info =
          "\t>>> Digite 'ranking' para visualizar os jogadores com maior pontuação...\n"
          "\t>>> Digite 'ajuda' para visualizar o manual de comandos...\n"
          "\t>>> Digite 'clear' para limpar a tela...\n"
-         "\t>>> Digite 'sair' para fechar o game...\n";
+         "\t>>> Digite 'sair' para fechar o game...";
 
 const char* painel_ajuda = 
          "/////////////////////////////////////////////////////////////////////\n"
@@ -81,7 +81,7 @@ const char* painel_ajuda =
          "/// clear -> Limpa a tela.                                        ///\n"
          "/// sair  -> Sai do programa.                                     ///\n"
          "///                                                               ///\n"
-         "/////////////////////////////////////////////////////////////////////\n\n";
+         "/////////////////////////////////////////////////////////////////////";
 
 const char* painel_inventario_top =
         "/////////////////////////////////////////////////\n"
@@ -89,14 +89,14 @@ const char* painel_inventario_top =
         "///    ===================================    ///\n"
         "///    = = = =    Seu Inventario   = = = =    ///\n"
         "///    ===================================    ///\n"
-        "///                                           ///\n";
+        "///                                           ///";
 
 const char* painel_inventario_mid_vazio =
-        "///             INVENTARIO VAZIO              ///\n";
+        "///             INVENTARIO VAZIO              ///";
 
 const char* painel_inventario_bottom =
         "///                                           ///\n"
-        "/////////////////////////////////////////////////\n\n";
+        "/////////////////////////////////////////////////";
 
 const char* painel_ranking_top =
         "/////////////////////////////////////////////////\n"
@@ -104,11 +104,23 @@ const char* painel_ranking_top =
         "///    ===================================    ///\n"
         "///    = = = =       Ranking       = = = =    ///\n"
         "///    ===================================    ///\n"
-        "///                                           ///\n";
+        "///                                           ///";
 
 const char* painel_ranking_mid_vazio =
-        "///               RANKING VAZIO               ///\n";
+        "///               RANKING VAZIO               ///";
 
 const char* painel_ranking_bottom =
         "///                                           ///\n"
-        "/////////////////////////////////////////////////\n\n";
+        "/////////////////////////////////////////////////";
+        
+const char* painel_status_top =
+        "/////////////////////////////////////////////////\n"
+        "///                                           ///\n"
+        "///    ===================================    ///\n"
+        "///    = = = =      Seu Status     = = = =    ///\n"
+        "///    ===================================    ///\n"
+        "///                                           ///";
+
+const char* painel_status_bottom =
+        "///                                           ///\n"
+        "/////////////////////////////////////////////////";

@@ -8,3 +8,5 @@ extern const char* painel_inventario_bottom;
 extern const char* painel_ranking_top;
 extern const char* painel_ranking_mid_vazio;
 extern const char* painel_ranking_bottom;
+extern const char* painel_status_top;
+extern const char* painel_status_bottom;

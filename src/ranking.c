@@ -80,7 +80,7 @@ void mostrar_ranking(ranking_t *ranking) {
 }
 
 // Grava todas as estruturas jogador_t no arquivo 'ranking.dat' sobeescrevendo
-// as anteriores
+// as anteriores, 'lixo' como ponteiros também são gravados e ignorados depois
 bool salvar_ranking(ranking_t *ranking) {
     FILE *fp = fopen("ranking.dat", "w");
     if (!fp) return false;

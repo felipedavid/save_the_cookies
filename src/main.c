@@ -11,7 +11,7 @@ int main() {
     ranking_t *ranking = criar_ranking();
     load_ranking(ranking);
 
-    char entrada[256] = "olhar em volta";
+    char entrada[256] = "info";
     while (executar_entrada(entrada, ranking) &&
            obter_entrada(entrada, sizeof(entrada)));
 
