@@ -20,7 +20,8 @@ bool pontos_valido(int pontos) {
 }
 
 bool nome_valido(char *nome) {
-    for (int i = 0; i < strlen(nome)-1; i++) {
+    size_t nome_len = strlen(nome)-1; // \n
+    for (size_t i = 0; i < nome_len ; i++) {
         if ((!eh_letra(nome[i])) && (nome[i] != ' ')) {
             return false;
         }
@@ -32,7 +33,8 @@ bool email_valido(char *email) {
     int posicaoArroba, posicaoPonto;
     bool pontoPresente = false, arrobaPresente = false;
 
-    for (int i = 0; i < strlen(email)-1; i++) {
+    size_t len_email = strlen(email)-1;
+    for (size_t i = 0; i < len_email; i++) {
         if (email[i] == '.') {
             posicaoPonto = i;
             pontoPresente = true;
@@ -56,7 +58,8 @@ bool senha_valida(char *senha) {
     int c, n, s;
     c = n = s = 0;
 
-    for (int i = 0; i < strlen(senha); i++) {
+    size_t len_senha = strlen(senha);
+    for (size_t i = 0; i < len_senha; i++) {
         if (senha[i] == ' '  || senha[i] == '\0' || 
             senha[i] == '\n' || senha[i] == '\t') {
             return false;
